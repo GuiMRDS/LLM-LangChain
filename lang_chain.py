@@ -2,6 +2,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 from langchain.prompts import ChatPromptTemplate, PromptTemplate
 from langchain.globals import set_debug
+
 from my_keys import GEMINI_API_KEY
 from my_models import GEMINI_FLASH
 from my_helper import encode_image
