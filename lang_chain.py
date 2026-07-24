@@ -17,6 +17,7 @@ llm = ChatGoogleGenerativeAI(
     model=GEMINI_FLASH
 )
 
+
 # Codifica a imagem em base64
 imagem = encode_image("dados/exemplo_grafico.jpg")
 

@@ -1,14 +1,17 @@
-
 from pydantic import BaseModel, Field
 from typing import List
 
 class DetalhesImagemModelo(BaseModel):
     titulo: str = Field(
-        description="Defina o titulo adequando para a imagem que foi analisada."
+        description="Título resumido da imagem."
     )
+
     descricao: str = Field(
-        description="Coloque aqui uma descrição detalhada de sua análise para imagem."
+        description="Descrição detalhada do conteúdo da imagem."
     )
+
     rotulos: List[str] = Field(
-        description="Defina três rótulos principais para a imagem analisada."
+        min_length=3,
+        max_length=3,
+        description="Exatamente três rótulos relevantes para a imagem."
     )
