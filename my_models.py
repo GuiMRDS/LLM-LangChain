@@ -1,3 +1,4 @@
 GEMINI_PRO = "gemini-2.5-pro"
-GEMINI_FLASH = "gemini-2.5-flash"
+GEMINI_FLASH = "gemini-3.6-flash"
 MARITACA_SABIA = "sabia-3"
+
