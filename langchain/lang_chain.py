@@ -6,7 +6,7 @@ from langchain.globals import set_debug
 from my_keys import GEMINI_API_KEY
 from my_models import GEMINI_FLASH
 from my_helper import encode_image
-from detalhes_imagem_modelo import DetalhesImagemModelo
+from langchain.detalhes_imagem_modelo import DetalhesImagemModelo
 
 # Desativa logs de depuração
 set_debug(True)
