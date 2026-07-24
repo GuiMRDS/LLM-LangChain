@@ -9,7 +9,7 @@ from my_helper import encode_image
 from detalhes_imagem_modelo import DetalhesImagemModelo
 
 # Desativa logs de depuração
-set_debug(False)
+set_debug(True)
 
 # Instancia o modelo LLM com as credenciais e configuração adequadas
 llm = ChatGoogleGenerativeAI(
