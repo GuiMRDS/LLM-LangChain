@@ -1,10 +1,7 @@
-from typing import Any
-
 from langchain.tools import BaseTool
-from langchain_community.chat_models import ChatMaritalk
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
-from langchain.prompts import ChatPromptTemplate, PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain.prompts import PromptTemplate
 
 
 from my_keys import GEMINI_API_KEY
