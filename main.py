@@ -1,3 +1,5 @@
+import time
+
 from langchain.agents import AgentExecutor
 from agente.orquestrador import AgenteOrquestrador
 
@@ -10,6 +12,8 @@ def main():
         tools=agente.tools,
         verbose=True,
     )
+
+    inicio = time.time()
 
     print("""
     === Assistente IA ===
@@ -33,9 +37,11 @@ def main():
                 "input": pergunta
             })
 
+            fim = time.time()
+
             print("\nAssistente:")
             print(resposta["output"])
-            print()
+            print(f"\n⏱ Tempo: {fim - inicio:.2f}s")
 
         except Exception as e:
             print(f"\nErro: {e}\n")
