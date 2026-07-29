@@ -1,4 +1,5 @@
 .env
+.imagem
 
 *__pycache__/
 *venv*/
