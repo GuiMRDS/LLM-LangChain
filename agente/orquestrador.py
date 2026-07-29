@@ -1,4 +1,6 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
+
+from agente.ferramenta_analisadora_imagem import FerramentaAnalisadoraImagem
 from my_models import GEMINI_FLASH
 from my_keys import GEMINI_API_KEY
 from langchain.globals import set_debug
@@ -7,7 +9,7 @@ set_debug(False)
 from langchain import hub
 from langchain.agents import create_react_agent
 from langchain.agents import Tool
-from ferramenta_analisadora_imagem import FerramentaAnalisadoraImagem
+
 
 class AgenteOrquestrador:
     def __init__(self):
@@ -21,9 +23,9 @@ class AgenteOrquestrador:
         self.tools = [
             Tool(
                 name = ferramenta_analisadora_imagem.name,
-                run = ferramenta_analisadora_imagem.run,
+                func = ferramenta_analisadora_imagem.run,
                 description = ferramenta_analisadora_imagem.description,
-                return_direct = ferramenta_analisadora_imagem. return_direct,
+                return_direct = ferramenta_analisadora_imagem.return_direct,
             )
         ]
 

@@ -6,8 +6,9 @@ from langchain.prompts import ChatPromptTemplate, PromptTemplate
 from my_keys import GEMINI_API_KEY
 from my_models import GEMINI_FLASH
 from my_helper import encode_image
-from langchain.detalhes_imagem_modelo import DetalhesImagemModelo
+from agente.detalhes_imagem_modelo import DetalhesImagemModelo
 import ast
+import os
 
 class FerramentaAnalisadoraImagem(BaseTool):
     name:str = "Ferramenta Analisadora Imagem"
@@ -22,15 +23,14 @@ class FerramentaAnalisadoraImagem(BaseTool):
     return_direct : bool = False
 
     def _run(self, acao):
-        acao = ast.literal_eval(acao)
-        caminho_imagem = acao.get("caminho_imagem", "")
+        caminho_imagem = acao.strip()
 
         llm = ChatGoogleGenerativeAI(
             api_key=GEMINI_API_KEY,
             model=GEMINI_FLASH
         )
 
-        imagem = encode_image(f"dados/{caminho_imagem}.jpg")
+        imagem = encode_image(f"dados/{caminho_imagem}")
         template_analisador = ChatPromptTemplate.from_messages(
             [
                 (
