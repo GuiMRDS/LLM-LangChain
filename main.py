@@ -33,15 +33,7 @@ def main():
                 "input": pergunta
             })
 
-            print("""
-                === Assistente IA ===
-
-                Exemplos:
-                - Explique o que são desvios condicionais
-                - Faça uma análise da imagem exemplo_grafico.jpg
-
-                Digite 'sair' para encerrar.
-            """)
+            print("\nAssistente:")
             print(resposta["output"])
             print()
 
