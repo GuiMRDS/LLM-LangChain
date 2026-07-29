@@ -1,6 +1,4 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
-
-from agente.ferramenta_analisadora_imagem import FerramentaAnalisadoraImagem
 from my_models import GEMINI_FLASH
 from my_keys import GEMINI_API_KEY
 from langchain.globals import set_debug
@@ -9,6 +7,8 @@ set_debug(False)
 from langchain import hub
 from langchain.agents import create_react_agent
 from langchain.agents import Tool
+from ferramentas.ferramenta_analisadora_imagem import FerramentaAnalisadoraImagem
+from ferramentas.ferramenta_explicadora import FerramentaExplicadora
 
 
 class AgenteOrquestrador:
@@ -19,6 +19,7 @@ class AgenteOrquestrador:
         )
 
         ferramenta_analisadora_imagem = FerramentaAnalisadoraImagem()
+        ferramenta_explicadora = FerramentaExplicadora()
 
         self.tools = [
             Tool(
@@ -26,7 +27,13 @@ class AgenteOrquestrador:
                 func = ferramenta_analisadora_imagem.run,
                 description = ferramenta_analisadora_imagem.description,
                 return_direct = ferramenta_analisadora_imagem.return_direct,
-            )
+            ),
+            Tool(
+                name= ferramenta_explicadora.name,
+                func= ferramenta_explicadora.run,
+                description= ferramenta_explicadora.description,
+                return_direct= ferramenta_explicadora.return_direct,
+            ),
         ]
 
         prompt = hub.pull("hwchase17/react")

@@ -19,7 +19,7 @@ llm = ChatGoogleGenerativeAI(
 
 
 # Codifica a imagem em base64
-imagem = encode_image("dados/exemplo_grafico.jpg")
+imagem = encode_image("imagem/exemplo_grafico.jpg")
 
 # Template para análise da imagem
 template_analisador = ChatPromptTemplate.from_messages(

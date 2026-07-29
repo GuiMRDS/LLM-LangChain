@@ -23,15 +23,28 @@ class FerramentaAnalisadoraImagem(BaseTool):
     return_direct : bool = False
 
     def _run(self, acao):
-        caminho_imagem = acao.strip()
+        print("TIPO:", type(acao))
+        print("VALOR:", repr(acao))
+
+        try:
+            dados = ast.literal_eval(acao)
+
+            if isinstance(dados, dict):
+                caminho_imagem = dados["nome_imagem"]
+            else:
+                caminho_imagem = acao
+
+        except Exception:
+            caminho_imagem = acao
+
+        caminho_imagem = caminho_imagem.strip()
 
         caminho_arquivo = os.path.join(
-            "dados",
+            "imagem",
             caminho_imagem
         )
 
-        if not os.path.exists(caminho_arquivo):
-            return f"Imagem não encontrada: {caminho_arquivo}"
+        print("ARQUIVO:", caminho_arquivo)
 
         imagem = encode_image(caminho_arquivo)
 

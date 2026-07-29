@@ -9,8 +9,7 @@ def main():
         verbose=True,
     )
 
-    pergunta = "Faça uma analise da imagem exemplo_grafico.jpg"
-
+    pergunta = "Gostaria que você me explicasse como funcionam os devios condicionais"
     resposta = orquestrador.invoke({"input": pergunta})
     print(resposta)
 
